@@ -15,12 +15,14 @@ export function AuthProvider({ children }) {
   const [state, setState] = useState(initialState);
 
   return (
-    <AuthContext.Provider value={{ user: state.user, 
-        login: (user) => {
+    <AuthContext.Provider value={{ 
+        user: state.user, 
+        justLoggedIn: state.justLoggedIn,
+        login: (user, justLoggedIn = true) => {
             setState((prev) => ({
                 ...prev,
                 user : user,
-                justLoggedIn: true
+                justLoggedIn: justLoggedIn
             }));
         },
         logout: async () => {

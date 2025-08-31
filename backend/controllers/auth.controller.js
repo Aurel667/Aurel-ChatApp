@@ -28,10 +28,10 @@ exports.login = async (req, res) => {
     if (!user) return res.status(401).json({ message: 'Identifiants invalides.' });
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) return res.status(401).json({ message: 'Identifiants invalides.' });
-    const token = jwt.sign({ _id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
-    res.cookie('token', token, { httpOnly: true, secure: false });
     const { password : _, ...userData } = user.toObject();
-    res.json({ userData });
+    const token = jwt.sign({ ...userData }, JWT_SECRET, { expiresIn: '7d' });
+    res.cookie('token', token, { httpOnly: true, secure: false });
+    res.json({ ...userData });
   } catch (err) {
     console.log(err)
 
@@ -41,10 +41,7 @@ exports.login = async (req, res) => {
 
 exports.me = async (req, res) => {
   try {
-    const token = req?.cookies?.token;
-    if (!token) return res.status(401).json({ message: 'Non autorisé.' });
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await User.findById(decoded.id);
+    const user = await User.findOne({_id: req.user._id})
     if (!user) return res.status(404).json({ message: 'Utilisateur non trouvé.' });
     const { password: _, ...userData } = user.toObject();
     res.json({ ...userData });

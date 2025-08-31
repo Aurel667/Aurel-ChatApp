@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "push": "git add . && git commit -m \"default commit\" && git push -u origin main && cls"
+    }
+}

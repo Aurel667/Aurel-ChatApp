@@ -6,9 +6,11 @@ exports.auth = async (req, res, next) => {
         const token = req.cookies.token;
         if (!token) return res.status(401).json({ message: 'Non autorisé.' });
         const decoded = jwt.verify(token, JWT_SECRET);
-        console.log(decoded)
         const user = await User.findById(decoded._id);
-        if (!user) return res.status(404).json({ message: 'Utilisateur non trouvé.' });
+        if (!user) {
+            console.log("Voici le user qui n'a pas été trouvé là",user)
+            res.status(404).json({ error: 'Utilisateur non trouvé.' })
+        };
         req.user = user;
         next();
     } catch (error) {
