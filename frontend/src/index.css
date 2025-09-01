@@ -1,1 +1,20 @@
-@import "tailwindcss"
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+
+body {
+  @apply bg-neutral-800;
+  font-family: "Open sans", sans-serif;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* Scrollbar fine et couleur personnalisée */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888888bd transparent;
+}

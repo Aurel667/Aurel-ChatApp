@@ -1,5 +1,6 @@
 const Room = require('../models/Room');
 const User = require('../models/User');
+const Message = require('../models/Message');
 
 exports.createRoom = async (req, res) => {
   const { name, contacts } = req.body;
@@ -19,14 +20,17 @@ exports.getMyRooms = async (req, res) => {
         if(rooms?.length > 0){
             for (const room of rooms) {
                 const contactsList = room?.users?.filter(id => id != user?._id)
+                console.log(contactsList)
+                const lastMessage = await Message.findOne({ roomId: room._id }).sort({ createdAt: -1 });
                 if(room?.isChat && room.isPrivate){
-                    const contact = await User.findOne({_id: contactsList[0]})
+                    const contact = await User.findOne({_id: contactsList[1]})
                     if(!contact) {continue;}
                     roomsMaping.push({
                         _id: room?._id,
                         name: contact?.username,
                         isPrivate: true,
-                        isChat: true
+                        isChat: true,
+                        lastMessage: lastMessage
                     })
                 }
                 else {
@@ -44,7 +48,8 @@ exports.getMyRooms = async (req, res) => {
                         name: room?.name,
                         users: contacts,
                         iPrivate: room?.isPrivate,
-                        isChat: false
+                        isChat: false,
+                        lastMessage: lastMessage,
                     })
                 }
             }
@@ -59,15 +64,27 @@ exports.create2personChat = async (req, res) => {
     try {
         const creator = req.user
         const {username} = req.body
-        const contact = await User.find({username})
+        const contact = await User.findOne({username})
         if(!contact) res.status(404).json({error: "Le contact n'existe pas"})
+        const existings = await Room.find({
+            users: { $all: [creator._id, contact._id] },
+            isPrivate: true,
+            isChat: true
+        })
+        existings.forEach((existing) => {
+            if(existing.users?.length > 2){
+                return res.status(409).json({error: "Une conversation avec cet utilisateur existe déjà."})
+            }
+        })
         const room = await Room.create({
+            name: "default",
             isPrivate : true,
             isChat: true,
             users : [creator?._id, contact?._id]
         })
-        return res.status(201).json({...room, name: username})
+        return res.status(201).json({...room.toObject(), name: username})
     } catch (error) {
-        return res.status(500).json({error : "Erreur serveur"})
+        console.log(error)
+        return res.status(500).json({error : error.message})
     }
 }

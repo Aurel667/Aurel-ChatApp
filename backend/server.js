@@ -13,10 +13,35 @@ const io = new Server(server, {
         credentials: true
     },
 });
-    
+
+
+const Message = require('./models/Message');
+const Room = require('./models/Room');
+const User = require('./models/User');
 
 io.on('connection', (socket) => {
     console.log('Nouvel utilisateur connecté :', socket.id);
+
+    socket.on("join_room", async (roomId) => {
+        try {
+            socket.join(roomId)
+            console.log('Room joined:', roomId)
+            const messages = await Message.find({room: roomId})
+            socket.emit(`messages`, messages)
+        } catch (error) {
+            socket.emit('error', error.message)
+        }
+    })
+    
+    socket.on('send_message', async (message) => {
+        try {
+            const newOne = await Message.create(message)
+            console.log(newOne)
+            io.to(newOne.room).emit('new_message', newOne)
+        } catch (error) {
+            
+        }
+    })
 
     
 

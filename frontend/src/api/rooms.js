@@ -18,10 +18,10 @@ export async function createChat({username}){
     }
 }
 
-export async function createGroup({name, users}) {
-    try {
-        const response = await apiClient.post('/')
-    } catch (error) {
-        return { error: error.message }
-    }
-}
+// export async function createGroup({name, users}) {
+//     try {
+//         const response = await apiClient.post('/')
+//     } catch (error) {
+//         return { error: error.message }
+//     }
+// }
