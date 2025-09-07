@@ -1,10 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 import { logout as sessionClear } from '../api/auth';
-import AutoAuth from './AutoAuth';
 
 const initialState = {
   user: null,
-  justLoggedIn: false,
   login: () => {},
   logout: async () => {}
 };
@@ -17,12 +15,10 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{ 
         user: state.user, 
-        justLoggedIn: state.justLoggedIn,
-        login: (user, justLoggedIn = true) => {
+        login: (user) => {
             setState((prev) => ({
                 ...prev,
                 user : user,
-                justLoggedIn: justLoggedIn
             }));
         },
         logout: async () => {
@@ -34,7 +30,6 @@ export function AuthProvider({ children }) {
         }
     }}>
       {children}
-      <AutoAuth />
     </AuthContext.Provider>
   );
 }

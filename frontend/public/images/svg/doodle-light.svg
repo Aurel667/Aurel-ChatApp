@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style><![CDATA[
+      .dl { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .s { stroke: #0f172a; opacity: 0.1; }
+    ]]></style>
+  </defs>
+<circle class="dl s" cx="32" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="32" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="96" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="160" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="224" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="288" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="352" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="416" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="32" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="96" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="160" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="224" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="288" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="352" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="416" cy="480" r="0.8" stroke-width="0.8" />
+<circle class="dl s" cx="480" cy="480" r="0.8" stroke-width="0.8" />
+<g transform="translate(70.10276258442046,37.3339069452089) rotate(15) scale(0.9375146591845597)">
+<rect class="dl s" x="-12" y="-20" width="24" height="40" rx="6" stroke-width="1.4" />
+<line class="dl s" x1="-5" y1="-15" x2="5" y2="-15" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="16" r="2.5" stroke-width="1.4" />
+</g>
+<g transform="translate(152.61179808874732,72.09063932922194) scale(1.2460897838524227)">
+<rect class="dl s" x="-16" y="-8" width="28" height="16" rx="4" stroke-width="1.4" />
+<path class="dl s" d="M14,-4 a6,6 0 1 1 0,12" stroke-width="1.4" />
+<path class="dl s" d="M-6,-12 c-2,-6 6,-6 4,0 -2,6 6,6 4,0" stroke-width="1.2" />
+</g>
+<g transform="translate(213.16916371654776,37.58918503669709) rotate(-15) scale(0.9093189874018017)">
+<rect class="dl s" x="-16" y="-8" width="28" height="16" rx="4" stroke-width="1.4" />
+<path class="dl s" d="M14,-4 a6,6 0 1 1 0,12" stroke-width="1.4" />
+<path class="dl s" d="M-6,-12 c-2,-6 6,-6 4,0 -2,6 6,6 4,0" stroke-width="1.2" />
+</g>
+<g transform="translate(269.4152517164727,46.60467470328792) rotate(-15) scale(1.1249422188897618)">
+<path class="dl s" d="M0,6 C-2,10 -10,10 -12,4 -14,-2 -10,-8 0,-2 10,-8 14,-2 12,4 10,10 2,10 0,6 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(357.0901665088371,67.42750314004846) scale(1.2047152283389133)">
+<rect class="dl s" x="-12" y="-20" width="24" height="40" rx="6" stroke-width="1.4" />
+<line class="dl s" x1="-5" y1="-15" x2="5" y2="-15" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="16" r="2.5" stroke-width="1.4" />
+</g>
+<g transform="translate(459.9007677327054,54.1466942142929) rotate(-45) scale(0.8777397499058908)">
+<path class="dl s" d="M-10,4 h20 c-3,-6 -3,-14 -10,-16 -7,2 -7,10 -10,16 Z" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="8" r="2.5" stroke-width="1.4" />
+</g>
+<g transform="translate(41.45121474772526,133.596122700658) rotate(30) scale(0.9794896902423142)">
+<rect class="dl s" x="-16" y="-8" width="28" height="16" rx="4" stroke-width="1.4" />
+<path class="dl s" d="M14,-4 a6,6 0 1 1 0,12" stroke-width="1.4" />
+<path class="dl s" d="M-6,-12 c-2,-6 6,-6 4,0 -2,6 6,6 4,0" stroke-width="1.2" />
+</g>
+<g transform="translate(127.44111291850736,115.65069028923185) scale(1.0297124398359214)">
+<path class="dl s" d="M0,6 C-2,10 -10,10 -12,4 -14,-2 -10,-8 0,-2 10,-8 14,-2 12,4 10,10 2,10 0,6 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(194.86934389751775,128.96950834171162) rotate(-45) scale(1.1143198997472217)">
+<path class="dl s" d="M-10,4 h20 c-3,-6 -3,-14 -10,-16 -7,2 -7,10 -10,16 Z" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="8" r="2.5" stroke-width="1.4" />
+</g>
+<g transform="translate(298.792114413694,150.91049793146257) rotate(15) scale(0.8229121918278312)">
+<path class="dl s" d="M-14,0 a10,10 0 0 1 20,0 l0,12 a10,10 0 0 1 -20,0 l0,-20 a14,14 0 0 1 28,0 l0,18" stroke-width="1.4" />
+</g>
+<g transform="translate(397.878481101907,158.95027845414117) rotate(45) scale(1.233241833377635)">
+<path class="dl s" d="M-14,0 a10,10 0 0 1 20,0 l0,12 a10,10 0 0 1 -20,0 l0,-20 a14,14 0 0 1 28,0 l0,18" stroke-width="1.4" />
+</g>
+<g transform="translate(446.84854945964986,157.81922275417332) rotate(30) scale(0.8813270485780424)">
+<rect class="dl s" x="-20" y="-12" width="40" height="24" rx="6" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="0" r="7" stroke-width="1.4" />
+<rect class="dl s" x="-10" y="-18" width="20" height="6" rx="3" stroke-width="1.4" />
+</g>
+<g transform="translate(71.74267596681031,228.09708338445606) scale(1.1417738327683336)">
+<rect class="dl s" x="-16" y="-8" width="28" height="16" rx="4" stroke-width="1.4" />
+<path class="dl s" d="M14,-4 a6,6 0 1 1 0,12" stroke-width="1.4" />
+<path class="dl s" d="M-6,-12 c-2,-6 6,-6 4,0 -2,6 6,6 4,0" stroke-width="1.2" />
+</g>
+<g transform="translate(147.19884203717655,219.15412677491776) rotate(45) scale(0.9224054625757132)">
+<path class="dl s" d="M0,6 C-2,10 -10,10 -12,4 -14,-2 -10,-8 0,-2 10,-8 14,-2 12,4 10,10 2,10 0,6 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(205.06388409516148,240.0208629131316) rotate(15) scale(1.1440809792166566)">
+<path class="dl s" d="M0,16 C-6,8 -10,2 -10,-4 a10,10 0 0 1 20,0 c0,6 -4,12 -10,20 Z" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="-4" r="3.5" stroke-width="1.4" />
+</g>
+<g transform="translate(285.29507916881715,231.6433908049265) rotate(-45) scale(0.8279689737746421)">
+<rect class="dl s" x="-18" y="-14" width="36" height="24" rx="10" stroke-width="1.4" />
+<path class="dl s" d="M8,10 l6,8 -10,-5" stroke-width="1.4" />
+</g>
+<g transform="translate(388.26910937446473,212.0621219745242) rotate(-15) scale(0.8330943026057737)">
+<circle class="dl s" cx="0" cy="0" r="12" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="0" y2="-6" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="6" y2="0" stroke-width="1.4" />
+</g>
+<g transform="translate(439.4494869759188,225.6233954823936) rotate(-30) scale(0.9978159505303321)">
+<path class="dl s" d="M0,-12 L3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(43.61981815691001,275.44695037469364) rotate(-15) scale(1.1724944910458033)">
+<path class="dl s" d="M-14,0 a10,10 0 0 1 20,0 l0,12 a10,10 0 0 1 -20,0 l0,-20 a14,14 0 0 1 28,0 l0,18" stroke-width="1.4" />
+</g>
+<g transform="translate(153.1740699547871,290.8498041223776) rotate(30) scale(1.0917664624728283)">
+<rect class="dl s" x="-20" y="-12" width="40" height="24" rx="6" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="0" r="7" stroke-width="1.4" />
+<rect class="dl s" x="-10" y="-18" width="20" height="6" rx="3" stroke-width="1.4" />
+</g>
+<g transform="translate(243.85737482608857,275.3776930608457) rotate(-45) scale(1.0467579174448156)">
+<rect class="dl s" x="-18" y="-14" width="36" height="24" rx="10" stroke-width="1.4" />
+<path class="dl s" d="M8,10 l6,8 -10,-5" stroke-width="1.4" />
+</g>
+<g transform="translate(313.9254885155555,276.15153703190725) rotate(-30) scale(0.8799910008612252)">
+<path class="dl s" d="M0,6 C-2,10 -10,10 -12,4 -14,-2 -10,-8 0,-2 10,-8 14,-2 12,4 10,10 2,10 0,6 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(377.1418149723719,288.52092328930667) rotate(45) scale(1.097944214180564)">
+<path class="dl s" d="M-8,-14 v18 a6,6 0 1 0 4,6 v-16 l12,-3 v12 a6,6 0 1 0 4,6 v-22 z" stroke-width="1.4" />
+</g>
+<g transform="translate(436.07541973236334,297.505381131482) rotate(-30) scale(1.2712154306899048)">
+<circle class="dl s" cx="0" cy="0" r="12" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="0" y2="-6" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="6" y2="0" stroke-width="1.4" />
+</g>
+<g transform="translate(42.10942629246328,392.5220506735525) rotate(-45) scale(1.175438899795805)">
+<path class="dl s" d="M0,16 C-6,8 -10,2 -10,-4 a10,10 0 0 1 20,0 c0,6 -4,12 -10,20 Z" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="-4" r="3.5" stroke-width="1.4" />
+</g>
+<g transform="translate(131.4760252283224,360.9866735278627) scale(0.8790788771723349)">
+<circle class="dl s" cx="0" cy="0" r="12" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="0" y2="-6" stroke-width="1.4" />
+<line class="dl s" x1="0" y1="0" x2="6" y2="0" stroke-width="1.4" />
+</g>
+<g transform="translate(237.378823486837,359.3807493733915) rotate(15) scale(1.0502930565251491)">
+<path class="dl s" d="M-8,-14 v18 a6,6 0 1 0 4,6 v-16 l12,-3 v12 a6,6 0 1 0 4,6 v-22 z" stroke-width="1.4" />
+</g>
+<g transform="translate(316.6734847650571,391.76099039129423) rotate(-30) scale(0.9492223957243164)">
+<path class="dl s" d="M-8,-14 v18 a6,6 0 1 0 4,6 v-16 l12,-3 v12 a6,6 0 1 0 4,6 v-22 z" stroke-width="1.4" />
+</g>
+<g transform="translate(377.8117446100358,353.4847609893138) rotate(-15) scale(1.1812554000375757)">
+<path class="dl s" d="M-8,-14 v18 a6,6 0 1 0 4,6 v-16 l12,-3 v12 a6,6 0 1 0 4,6 v-22 z" stroke-width="1.4" />
+</g>
+<g transform="translate(471.6529863677707,377.27704450454553) scale(1.0443028540144739)">
+<path class="dl s" d="M-10,4 h20 c-3,-6 -3,-14 -10,-16 -7,2 -7,10 -10,16 Z" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="8" r="2.5" stroke-width="1.4" />
+</g>
+<g transform="translate(82.86516681723649,467.02216156592954) scale(0.9537570627013308)">
+<rect class="dl s" x="-20" y="-12" width="40" height="24" rx="6" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="0" r="7" stroke-width="1.4" />
+<rect class="dl s" x="-10" y="-18" width="20" height="6" rx="3" stroke-width="1.4" />
+</g>
+<g transform="translate(160.1605119575488,473.17063708255967) rotate(45) scale(0.8428267260339395)">
+<path class="dl s" d="M-20,-10 L22,0 -20,10 -10,2 5,0 -10,-2 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(242.82583966279114,451.07766237490745) rotate(-30) scale(0.8628802557602206)">
+<path class="dl s" d="M0,-12 L3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(318.49859625093285,431.47343781195343) rotate(-15) scale(1.063836893709127)">
+<path class="dl s" d="M0,6 C-2,10 -10,10 -12,4 -14,-2 -10,-8 0,-2 10,-8 14,-2 12,4 10,10 2,10 0,6 Z" stroke-width="1.4" />
+</g>
+<g transform="translate(396.76602165373095,472.20871962678274) rotate(-30) scale(1.1776325983179028)">
+<rect class="dl s" x="-20" y="-12" width="40" height="24" rx="6" stroke-width="1.4" />
+<circle class="dl s" cx="0" cy="0" r="7" stroke-width="1.4" />
+<rect class="dl s" x="-10" y="-18" width="20" height="6" rx="3" stroke-width="1.4" />
+</g>
+<g transform="translate(460.6906118836865,443.94625599986284) rotate(30) scale(1.1358434798191417)">
+<path class="dl s" d="M0,-12 L3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3 Z" stroke-width="1.4" />
+</g>
+</svg>

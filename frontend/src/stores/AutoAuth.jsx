@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { getMe } from "../api/auth";
 
 export default function AutoAuth() {
-  const { user, justLoggedIn, login, logout } = useAuth();
+  const { user, login, logout } = useAuth();
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -15,8 +15,8 @@ export default function AutoAuth() {
         await logout();
       }
     };
-    if (!user && justLoggedIn == false) fetchUser();
-  }, [user, justLoggedIn]);
+    if (!user) fetchUser();
+  }, [user]);
 
   return null;
 }

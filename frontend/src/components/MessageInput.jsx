@@ -19,9 +19,9 @@ export default function MessageInput(){
     }
     return (
         <>
-        <form onSubmit={handleSendMessage} method="post" className="flex w-full items-center h-1/10  mt-auto border p-1">
-            <input onChange={(e) => setState({message: e.target.value})} type="text" className="w-18/19 text-white text-sm ps-16 h-full placeholder:text-gray-400 focus:ring-0 focus:outline-none" placeholder="Tapez un message"/>
-            <button type="submit" className="w-1/19 focus:ring-0 focus:outline-none hover:bg-gray-100/5 h-full rounded-md">
+        <form onSubmit={handleSendMessage} method="post" className="flex items-center min-h-[10vh] bg-neutral-800 border ">
+            <input value={state.message} onChange={(e) => setState({message: e.target.value})} type="text" className="w-18/19 text-white text-sm ps-16 py-4 h-full placeholder:text-gray-400 focus:ring-0 focus:outline-none" placeholder="Tapez un message"/>
+            <button type="submit" className="w-1/19 focus:ring-0 focus:outline-none hover:bg-gray-100/5 h-full rounded-md py-2">
                 <SendHorizonal className="w-4 h-4 text-gray-100 mx-auto"/>
             </button>
         </form>

@@ -9,7 +9,8 @@ const initialState = {
     setCurrentRoom: (roomId) => {},
     setRoomAtfirst: (roomId) => {},
     createContact: async (username) => {},
-    setLastMessage: (message) => {}
+    setLastMessage: (message) => {},
+    setUnreadMessagesCount: (roomId, count) => {}
 }
 
 const RoomContext = createContext(initialState)
@@ -27,32 +28,28 @@ export function RoomsProvider({children}){
         if(user?.username) getRooms();
     }, [user])
 
-    useEffect(() => {
-        socket.on('new_message', (message) => {
-
-        })
-    }, [socket])
-
     return (
         <RoomContext.Provider value={{
             currentRoom : state.currentRoom,
             rooms: state.rooms,
             setCurrentRoom: (roomId) => {
-                if(state.currentRoom?._id) socket.emit('leave_room', state.currentRoom?._id)
-                setState((prev) => ({...prev, currentRoom: state.rooms.find(room => room?._id == roomId)}))
-                socket.emit('join_room', roomId)
+                socket.emit('leave_room', {roomId: state.currentRoom?._id, userId: user?._id})
+                setState((prev) => ({
+                    ...prev, 
+                    currentRoom: prev.rooms.find(item => item?._id == roomId),
+                    rooms: prev.rooms.map(item => item?._id == roomId ? {...item, unreadsCount: 0} : item)
+                }))
+                return true
             },
             setRoomAtfirst: (roomId) => {
-                const room = state.rooms.find(room => room?._id == roomId)
-                const rooms = state.rooms?.filter(room => room?._id != roomId)
-                setState(prev => ({...prev, rooms: [room, ...rooms]}))
+                setState(prev => ({...prev, rooms: [prev.rooms.find(room => room?._id == roomId), ...prev.rooms?.filter(room => room?._id != roomId)]}))
+                return true
             },
             createContact: async (username) => {
                 try {
                     const room = await createChat({username})
                     if(room?._id){
-                        setState(prev => ({...prev, rooms: [room, ...prev.rooms]}))
-                        this.setCurrentRoom(room._id)
+                        setState(prev => ({...prev, currentRoom: room, rooms: [room, ...prev.rooms]}))
                     }
                     return room
                 } catch (error) {
@@ -66,7 +63,18 @@ export function RoomsProvider({children}){
                     ...prev,
                     rooms: prev.rooms.map(room => room?._id == message?.room ? {...room, lastMessage: message} : room)
                 }))
-                this.setRoomAtfirst(message?.room)
+                return true
+            },
+            setUnreadMessagesCount: (roomId) => {
+                setState(prev => ({
+                    ...prev,
+                    rooms: prev.rooms.map(room =>
+                        room._id === roomId
+                            ? { ...room, unreadsCount: (room.unreadsCount ? room.unreadsCount : 0) + 1 }
+                            : room
+                    )
+                }))
+                return true
             }
         }}>
             {children}

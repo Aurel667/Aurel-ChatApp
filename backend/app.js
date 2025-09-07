@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -13,7 +14,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/chatapp')
 // .finally(() => mongoose.disconnect());
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     credentials: true

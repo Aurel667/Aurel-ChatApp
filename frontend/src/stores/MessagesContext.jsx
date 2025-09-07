@@ -5,6 +5,7 @@ import { useRooms } from "./RoomsContext";
 
 const initialState = {
     messages: [],
+    onlineUsers: [],
     sendMessage: (text) => {}
 }
 
@@ -15,33 +16,46 @@ export function MessageProvider({children}){
     const {currentRoom, setRoomAtfirst, setLastMessage} = useRooms()
     const [state, setState] = useState(initialState)
     useEffect(() => {
-        socket.on('messages', (messages) => {
-            console.log(messages)
+        const handleMessages = (messages) => {
             setState(prev => ({
                 ...prev,
                 messages: messages
             }))
-        })
-        socket.on('new_message', ({message}) => {
+        }
+        const handleChatMessage = async (message) => {
             if(message?.room == currentRoom?._id){
                 setState(prev => ({
                     ...prev,
                     messages: [...prev.messages, message]
                 }))
-                setRoomAtfirst(currentRoom?._id)
+                setLastMessage(message)
+                setRoomAtfirst(message.room)
             }
-        })
-    }, [socket])
+        }
+        const handleOnlineUsers = (onlineUsers) => {
+            setState(prev => ({...prev, onlineUsers: onlineUsers}))
+        }
+        socket.on('online_users', handleOnlineUsers)
+        socket.on('messages', handleMessages)
+        socket.on('chat_message', handleChatMessage)
+        if(currentRoom?._id) socket.emit('join_room', {room: currentRoom._id, username: user?.username, userId: user?._id})
+        return () => {
+            socket.off('online_users', handleOnlineUsers)
+            socket.off('messages', handleMessages);
+            socket.off('chat_message', handleChatMessage);
+        };
+    }, [currentRoom?._id, socket])
+
     return (
         <MessageContext.Provider value={{
+            onlineUsers: state.onlineUsers,
             messages: state.messages,
             sendMessage: (text) => {
-                socket.emit('send_message', {
+                socket.emit('chat_message', {
                     user: user?._id,
                     room: currentRoom?._id,
                     text: text
                 })
-                setRoomAtfirst(currentRoom?._id)
             }
         }}>
         {children}

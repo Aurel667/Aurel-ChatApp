@@ -28,13 +28,13 @@ function Modal({closeModal}){
         setState({...state, loading: true, error: ""})
         try {
             const room = await createContact(state.username)
-            if(room?.error) setState(prev => ({...prev, error: room.error}))
-            if(room?._id) closeModal()
+            if(room?.error) {
+                setState({ ...state, loading: false, error: room.error });
+                return;
+            }
+            closeModal()
         } catch (error) {
-            setState({...state, error: error.message})
-        }
-        finally{
-            setState({...state, loading: false})
+            setState({...state, loading: false, error: error.message})
         }
     }
     return (
@@ -47,15 +47,15 @@ function Modal({closeModal}){
                         <X className="w-4 h-4 text-white"/>
                     </button>
                 </div>
-                {state.error != "" && (
+                {state?.error && (
                     <div className="flex gap-2 items-center border border-red-800/80 px-4 py-2 rounded-md bg-red-950/80 text-sm text-white">
                         <AlertCircle className="text-white w-4 h-4" /> Erreur : {state.error}
                     </div>
                 )}
-                <form onSubmit={handleSubmit} method="post" className="space-y-4">
+                <form onSubmit={(e) => handleSubmit(e)} method="post" className="space-y-4">
                     <div className="grid gap-1">
                         <label htmlFor="username" min={3} required className="text-gray-100 text-sm">Nom d'utilisateur</label>
-                        <input value={state.username} onChange={(e) => setState({...state, username: e.target.value})} type="text" placeholder="Nom d'utilisateur de votre ami" className="rounded border py-2 px-4 focus:outline-none text-white placeholder:text-gray-200 placeholder:text-sm" />
+                        <input value={state.username} required minLength={3} onChange={(e) => setState({...state, username: e.target.value})} type="text" placeholder="Nom d'utilisateur de votre ami" className="rounded border py-2 px-4 focus:outline-none text-white placeholder:text-gray-200 placeholder:text-sm" />
                     </div>
                     <div className="flex justify-end">
                         <button className="text-white font-medium rounded-md py-2 px-4 bg-neutral-950">

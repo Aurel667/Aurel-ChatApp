@@ -15,6 +15,53 @@ body {
 
 /* Scrollbar fine et couleur personnalisée */
 * {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: #888888bd transparent;
+}
+
+.animate-from-right-to-left{
+  animation: fromRightToLeft 0.3s ease-in-out;
+}
+
+@keyframes fromRightToLeft {
+  0%{
+    transform: translate(100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0);
+    opacity: 100%;
+  }
+  
+}
+
+.animate-from-left-to-right{
+  animation: fromLeftToRight 0.3s ease-in-out;
+}
+
+@keyframes fromLeftToRight {
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 100%;
+  }
+  
+}
+
+.animate-fade-in{
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100%;
+  }
+  
 }

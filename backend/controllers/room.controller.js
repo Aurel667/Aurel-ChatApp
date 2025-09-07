@@ -19,18 +19,22 @@ exports.getMyRooms = async (req, res) => {
         const rooms = await Room.find({users : user?._id})
         if(rooms?.length > 0){
             for (const room of rooms) {
-                const contactsList = room?.users?.filter(id => id != user?._id)
-                console.log(contactsList)
-                const lastMessage = await Message.findOne({ roomId: room._id }).sort({ createdAt: -1 });
+                let contactsList = []
+                room?.users?.map(id => id.toString() != user?._id.toString() && contactsList.push(id))
+                const lastMessage = await Message.findOne({ room: room._id }).sort({ createdAt: -1 });
+                const unreads = await Message.find({seen: false, room: room?._id, user: {
+                    $ne: [user?._id]
+                }})
                 if(room?.isChat && room.isPrivate){
-                    const contact = await User.findOne({_id: contactsList[1]})
+                    const contact = await User.findOne({_id: contactsList[0]})
                     if(!contact) {continue;}
                     roomsMaping.push({
                         _id: room?._id,
                         name: contact?.username,
                         isPrivate: true,
                         isChat: true,
-                        lastMessage: lastMessage
+                        lastMessage: lastMessage,
+                        unreadsCount: unreads?.length
                     })
                 }
                 else {
@@ -64,8 +68,9 @@ exports.create2personChat = async (req, res) => {
     try {
         const creator = req.user
         const {username} = req.body
-        const contact = await User.findOne({username})
-        if(!contact) res.status(404).json({error: "Le contact n'existe pas"})
+        const contact = await User.findOne({username: username})
+        if(contact === null) {console.log("Le contact n'existe pas"); return res.json({error: "Le contact n'existe pas"})}
+        if(contact?._id.toString() === creator?._id.toString()) {console.log("Vous ne pouvez pas créer une conversation avec vous-même"); return res.status(409).json({error: "Vous ne pouvez pas créer une conversation avec vous-même."})}
         const existings = await Room.find({
             users: { $all: [creator._id, contact._id] },
             isPrivate: true,
@@ -77,10 +82,10 @@ exports.create2personChat = async (req, res) => {
             }
         })
         const room = await Room.create({
-            name: "default",
-            isPrivate : true,
+            name: `Chat entre ${creator?.username} et ${contact?.username}`,
+            isPrivate: true,
             isChat: true,
-            users : [creator?._id, contact?._id]
+            users: [creator?._id, contact?._id]
         })
         return res.status(201).json({...room.toObject(), name: username})
     } catch (error) {
