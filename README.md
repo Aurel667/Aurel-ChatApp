@@ -54,6 +54,11 @@ npm run dev
 2. Démarrer le frontend (`npm run dev` dans `frontend/`).
 3. Accéder à l'application via [http://localhost:5173](http://localhost:5173).
 
+### Compte de test
+Vous pouvez vous connecter avec :
+- **Nom d'utilisateur** : `aurel`
+- **Mot de passe** : `aurel`
+
 ## Technologies utilisées
 - **Backend** : Node.js, Express, MongoDB, Socket.io
 - **Frontend** : React, Vite, Context API

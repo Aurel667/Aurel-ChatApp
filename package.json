@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "push": "git add . && git commit -m \"default commit\" && git push -u origin main && cls",
+        "push": "git add . && git commit -m \"features: chat, notifications, friends\" && git push -u origin main && cls",
         "front": "cd frontend && npm run dev",
         "back": "cd backend && npm run dev"
     }
