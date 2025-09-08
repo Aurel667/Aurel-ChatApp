@@ -108,11 +108,12 @@ io.on('connection', (socket) => {
         if(!isReceiverOnline){
             /** là on prend la room dans laquelle le message se trouve */
             const room = await Room.findById(message.room)
+            const roomObject = {...room.toObject(), lastMessage: message}
             //On récupère l'_id du destinataire de l'alerte
             const receiverId = room.users?.find(user => user.toString() != message?.user)
             //On lui envoie l'alerte sur son canal d'alerte privé
             const sender = await User.findOne({_id: message.user})
-            io.to(receiverId.toString()).emit("message_alert", {...newOne.toObject(), username: sender?.username});
+            io.to(receiverId.toString()).emit("message_alert", {...newOne.toObject(), username: sender?.username, roomObject: {...roomObject, name: sender?.username}});
 
             console.log('Message alert sent to: ', receiverId.toString())
         }

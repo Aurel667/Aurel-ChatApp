@@ -15,19 +15,16 @@ export default function App() {
       <RoomsProvider>
         {/* Provider de messages */}
         <MessageProvider>
-          {/* Provider de notification */}
-          <NotificationsService>
 
+          {/* Routes */}
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+          
+          {/* Services */}
+          <AutoAuth />
+          <NotificationsService />
 
-            {/* Routes */}
-            <BrowserRouter>
-              <Router />
-            </BrowserRouter>
-            {/* Services */}
-            <AutoAuth />
-
-
-          </NotificationsService>
         </MessageProvider>
       </RoomsProvider>
     </AuthProvider>

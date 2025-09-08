@@ -59,10 +59,22 @@ export function RoomsProvider({children}){
                 }
             },
             setLastMessage: (message) => {
-                setState(prev => ({
-                    ...prev,
-                    rooms: prev.rooms.map(room => room?._id == message?.room ? {...room, lastMessage: message} : room)
-                }))
+
+                setState(prev => {
+                    const room = prev.rooms.find(item => item?._id == message?.room)
+                    if(room){
+                        return ({
+                            ...prev,
+                            rooms: prev.rooms.map(room => room?._id == message?.room ? {...room, lastMessage: message} : room)
+                        })
+                    }
+                    else{
+                        return ({
+                            ...prev,
+                            rooms: [message?.roomObject, ...prev.rooms]
+                        })
+                    }
+                })
                 return true
             },
             setUnreadMessagesCount: (roomId) => {

@@ -1,11 +1,9 @@
-import { useCallback, useEffect, createContext } from "react";
+import { useEffect } from "react";
 import { useRooms } from "../stores/RoomsContext";
 import socket from "../config/socket";
 import { useAuth } from "../stores/AuthContext";
 
-const NotificationContext = createContext()
-
-function NotificationService({children}){
+function NotificationService(){
     const {user} = useAuth()
     const {currentRoom, setUnreadMessagesCount, setRoomAtfirst, setLastMessage} = useRooms()
     useEffect(() => {
@@ -36,11 +34,7 @@ function NotificationService({children}){
             }
         }
     }
-    return (
-        <NotificationContext.Provider value={{}}>
-            {children}
-        </NotificationContext.Provider>
-    )
+    return null
 }
 
 export default NotificationService
