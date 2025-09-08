@@ -15,7 +15,7 @@ export default function AutoAuth() {
         await logout();
       }
     };
-    if (!user) fetchUser();
+    if (!user?._id) fetchUser();
   }, [user]);
 
   return null;

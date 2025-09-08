@@ -14,7 +14,7 @@ exports.register = async (req, res) => {
     const hash = await bcrypt.hash(password, 10);
     const user = await User.create({ username, password: hash });
     const token = jwt.sign({ _id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
-    res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production' ? true : false });
+    res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production', sameSite: 'none' });
     res.status(201).json(user);
   } catch (err) {
     console.log(err)
@@ -31,7 +31,7 @@ exports.login = async (req, res) => {
     if (!valid) return res.status(401).json({ message: 'Identifiants invalides.' });
     const { password : _, ...userData } = user.toObject();
     const token = jwt.sign({ ...userData }, JWT_SECRET, { expiresIn: '7d' });
-    res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production' ? true : false });
+    res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production', sameSite: 'none' });
     res.json({ ...userData });
   } catch (err) {
     console.log(err)
