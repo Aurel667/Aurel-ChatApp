@@ -1,6 +1,9 @@
 # AurelChat App
 
-AurelChat App est une application de chat en temps réel avec une architecture full-stack (Node.js/Express pour le backend, React/Vite pour le frontend).
+AurelChat App est une application de chat en temps réel avec une architecture full-stack (Node.js/Express pour le backend, React/Vite pour le frontend et socket.io pour le temps réel).
+J'ai réalisé ce projet pour mieux comprendre les concepts de la communication en temps réel avec socket.io. Sans assistance d'IA, je voulais comprendre absolument tout ce que j'écris, il y a eu des erreurs des recherches, des améliorations.
+Ce projet est minimaliste, car je voulais une app légère et simple pour mettre en application les concepts que j'ai compris.
+
 
 ## Fonctionnalités principales
 - Authentification des utilisateurs (inscription, connexion)
