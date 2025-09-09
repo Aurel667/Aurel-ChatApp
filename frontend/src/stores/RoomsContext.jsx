@@ -23,7 +23,7 @@ export function RoomsProvider({children}){
         const getRooms = async () =>{
             const rooms = await getMyRooms()
             if(rooms?.error) return;
-            setState(prev => ({...prev, rooms: rooms}))
+            setState(prev => ({...prev, rooms: rooms?.reverse()}))
         }
         if(user?.username) getRooms();
     }, [user])
