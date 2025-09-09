@@ -18,9 +18,9 @@ export default function MessageItem({message, index, user, id, messages}){
                         {message?.replied?.user == user?._id && <p className="text-fuchsia-200/90 font-semibold text-xs">Vous</p>}
                         <p className="text-sm text-white w-3/5"> {message?.replied?.text} </p>
                     </div>}
-                    <div className="flex gap-2 justify-between items-center pb-1 px-2">
+                    <div className="flex flex-col gap-1 pb-1 px-2">
                         <p className="text-white text-sm"> {message?.text} </p>
-                        <div className="flex items-center mt-5 gap-2">
+                        <div className="flex justify-end items-center gap-2 w-full">
                             <p className="text-gray-200 text-end text-[8pt]"> {new Date(message?.createdAt).getHours()}:{new Date(message?.createdAt).getMinutes()} </p>
                             {(message?.user == user?._id) && <CheckCheck className={`w-4 ${message.seen ? "text-blue-300" : "text-gray-300"} h-4`} />}
                         </div>
