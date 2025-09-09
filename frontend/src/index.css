@@ -20,7 +20,7 @@ body {
 }
 
 .animate-from-right-to-left{
-  animation: fromRightToLeft 0.3s ease-in-out;
+  animation: fromRightToLeft 0.1s ease-in-out;
 }
 
 @keyframes fromRightToLeft {
@@ -36,7 +36,7 @@ body {
 }
 
 .animate-from-left-to-right{
-  animation: fromLeftToRight 0.3s ease-in-out;
+  animation: fromLeftToRight 0.1s ease-in-out;
 }
 
 @keyframes fromLeftToRight {
