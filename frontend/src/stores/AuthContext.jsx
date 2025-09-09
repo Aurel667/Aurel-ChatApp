@@ -16,12 +16,16 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider value={{ 
         user: state.user, 
         login: (user) => {
-            setState((prev) => ({
+            if(user?.token) localStorage.setItem('token', user?.token)
+            if(localStorage.getItem('token')){
+              setState((prev) => ({
                 ...prev,
                 user : user,
-            }));
+              }));
+            }
         },
         logout: async () => {
+            localStorage.removeItem('token')
             await sessionClear();
             setState((prev) => ({
                 ...prev,

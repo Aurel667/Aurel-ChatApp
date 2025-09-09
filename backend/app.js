@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/chatapp')
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
 app.use(cookieParser());

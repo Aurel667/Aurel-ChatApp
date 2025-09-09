@@ -15,7 +15,8 @@ exports.register = async (req, res) => {
     const user = await User.create({ username, password: hash });
     const token = jwt.sign({ _id: user._id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
     res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production', sameSite: process.env.NODE_ENV == 'production' ? 'none' : "lax" });
-    res.status(201).json(user);
+    const isMobile = req.headers['user-agent']?.includes('iPhone') || req.headers['user-agent']?.includes('Android')
+    res.status(201).json({...user.toObject(), password: undefined, token: isMobile ? token : undefined});
   } catch (err) {
     console.log(err)
     res.status(500).json({ error: 'Erreur serveur.' });
@@ -32,11 +33,11 @@ exports.login = async (req, res) => {
     const { password : _, ...userData } = user.toObject();
     const token = jwt.sign({ ...userData }, JWT_SECRET, { expiresIn: '7d' });
     res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV == 'production', sameSite: process.env.NODE_ENV == 'production' ? 'none' : "lax" });
-    res.json({ ...userData });
+    const isMobile = req.headers['user-agent']?.includes('iPhone') || req.headers['user-agent']?.includes('Android')
+    res.json({ ...userData, token: isMobile ? token : undefined });
   } catch (err) {
     console.log(err)
-
-    res.status(500).json({ message: 'Erreur serveur.' });
+    res.status(500).json({ message: 'Erreur serveur. ' + err.message, });
   }
 };
 

@@ -23,13 +23,13 @@ export default function MessageInput(){
     }
     return (
         <>
-        <form onSubmit={handleSendMessage} method="post" className="flex flex-col items-center min-h-fit bg-neutral-800/80 rounded-full px-2 mx-4 shadow-lg">
+        <form onSubmit={handleSendMessage} method="post" className={`flex flex-col items-center min-h-fit bg-neutral-800/80 rounded-full px-2 mx-4 shadow-lg`}>
             <div className="flex justify-between gap-2 items-center w-full">
                 <div className="w-fit">
                     <button type="button" onClick={() => setState({...state, emoji: !state.emoji})} className="w-fit text-lg focus:ring-0 focus:outline-none hover:bg-gray-100/5 h-full rounded-full p-2">
                         🙂
                     </button>
-                    {state.emoji && <div className="absolute top-0 md:top-15">
+                    {state.emoji && <div className="absolute transform -translate-x-10 translate-y-10  md:translate-0 top-0 md:top-15 animate-fade-in animate-from-b-to-t">
                         <Picker data={data} onEmojiSelect={(emoji) => setState({...state, message: state.message + " " + emoji?.native, emoji: false})} />
                     </div>}
                 </div>

@@ -18,7 +18,7 @@ export default function MessageItem({message, index, user, id, messages}){
                         {message?.replied?.user == user?._id && <p className="text-fuchsia-200/90 font-semibold text-xs">Vous</p>}
                         <p className="text-sm text-white w-3/5"> {message?.replied?.text} </p>
                     </div>}
-                    <div className="flex gap-2 items-center pb-1 px-2">
+                    <div className="flex gap-2 justify-between items-center pb-1 px-2">
                         <p className="text-white text-sm"> {message?.text} </p>
                         <div className="flex items-center mt-5 gap-2">
                             <p className="text-gray-200 text-end text-[8pt]"> {new Date(message?.createdAt).getHours()}:{new Date(message?.createdAt).getMinutes()} </p>
@@ -26,7 +26,6 @@ export default function MessageItem({message, index, user, id, messages}){
                         </div>
                     </div>
                 </div>
-    
                 <button onClick={() => setRepliedMessage({message: message?._id, user: message?.user, text: message?.text})} className="group-hover:block hidden animate-fade-in rounded-full min-w-8 min-h-8 hover:bg-neutral-700/80" type="button" title="Répondre à ce message">
                     <Reply className="w-4 h-4 text-gray-200 mx-auto" /> 
                 </button>

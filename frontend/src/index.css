@@ -65,3 +65,16 @@ body {
   }
   
 }
+
+.animate-from-b-to-t {
+  animation: fromBottomToTop 0.5s ease-in-out;
+}
+
+@keyframes fromBottomToTop {
+  0%{
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}

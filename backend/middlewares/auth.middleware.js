@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret';
 exports.auth = async (req, res, next) => {
     try {
-        const token = req.cookies.token;
+        const isMobile = req.headers['user-agent']?.includes('iPhone') || req.headers['user-agent']?.includes('Android')
+        const token = isMobile ? req.headers.authorization.split(' ')[1] : req.cookies.token;
         if (!token) return res.status(401).json({ message: 'Non autorisé.' });
         const decoded = jwt.verify(token, JWT_SECRET);
         const user = await User.findById(decoded._id);
