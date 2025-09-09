@@ -22,7 +22,7 @@ export default function MessagesThread(){
                 <div className="flex h-[1/10] bg-neutral-800 w-full shadow-lg p-2 md:rounded-none rounded-tl-lg">
                     <ContactInfo />
                 </div>
-                <div ref={viewRef} className="w-full py-2 pb-2 h-[72vh] px-4 overflow-x-hidden overflow-y-scroll rounded-tl-lg">
+                <div ref={viewRef} className="w-full py-2 pb-2 h-[70vh] px-4 overflow-x-hidden overflow-y-scroll rounded-tl-lg">
                     {messages?.length > 0 && messages?.map((message, index) => <MessageItem message={message} id={message?._id} index={index} messages={messages} user={user} key={message._id} />)}
                 </div>
                 {replied?.text && <a href={`#${replied?.message}`} className="w-full md:px-2 px-6">
