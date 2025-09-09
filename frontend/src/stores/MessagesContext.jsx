@@ -6,7 +6,10 @@ import { useRooms } from "./RoomsContext";
 const initialState = {
     messages: [],
     onlineUsers: [],
-    sendMessage: (text) => {}
+    replied: null,
+    sendMessage: (text) => {},
+    resetRepliedMessage: () => {},
+    setRepliedMessage: ({message, user, text}) => {}
 }
 
 const MessageContext = createContext(initialState)
@@ -19,14 +22,16 @@ export function MessageProvider({children}){
         const handleMessages = (messages) => {
             setState(prev => ({
                 ...prev,
-                messages: messages
+                messages: messages,
+                replied: null
             }))
         }
         const handleChatMessage = async (message) => {
             if(message?.room == currentRoom?._id){
                 setState(prev => ({
                     ...prev,
-                    messages: [...prev.messages, message]
+                    messages: [...prev.messages, message],
+                    replied: ""
                 }))
                 setLastMessage(message)
                 setRoomAtfirst(message.room)
@@ -50,12 +55,23 @@ export function MessageProvider({children}){
         <MessageContext.Provider value={{
             onlineUsers: state.onlineUsers,
             messages: state.messages,
-            sendMessage: (text) => {
+            replied: state.replied,
+            sendMessage: ({text, replied}) => {
                 socket.emit('chat_message', {
                     user: user?._id,
                     room: currentRoom?._id,
-                    text: text
+                    text: text,
+                    replied
                 })
+            },
+            setRepliedMessage: (replied) => {
+                setState(prev => ({
+                    ...prev,
+                    replied
+                }))
+            },
+            resetRepliedMessage: () => {
+                setState(prev => ({...prev, replied: null}))
             }
         }}>
         {children}

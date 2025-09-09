@@ -5,6 +5,11 @@ const messageSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   text: { type: String, required: true },
   seen: {type: Boolean, default: false},
+  replied:{
+    text: String,
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    message: { type: mongoose.Schema.Types.ObjectId, ref: "Message"}
+  },
   createdAt: { type: Date, default: Date.now }
 });
 
