@@ -8,6 +8,7 @@ import Guest from "../utils/Guest"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Chat from "../pages/Chat"
+import Error404 from "../components/404"
 
 
 export default function Router() {
@@ -21,6 +22,7 @@ export default function Router() {
       <Route element={<Auth />}>
         <Route path="/chat" element={<Chat />} />
       </Route>
+      <Route path="*" element={<Error404 />} />
     </Routes>
   )
 }
