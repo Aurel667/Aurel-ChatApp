@@ -13,7 +13,7 @@ export default function MessageItem({message, index, user, id, messages}){
             {(index == previousIndex) && (date == previousDate) && <p className="mx-auto text-sm text-white font-semibold py-1 text-center my-2 rounded-full bg-neutral-700/80 px-2"> {date == new Date().toLocaleDateString('fr-FR') ? "Aujourd'hui" : date} </p>}
             {(index != previousIndex) && (date != previousDate) && <p className="mx-auto text-sm text-white font-semibold py-1 text-center my-2 rounded-full bg-neutral-700/80 px-2"> {date == new Date().toLocaleDateString('fr-FR') ? "Aujourd'hui" : date} </p>}
             <div id={id} className={`flex items-center gap-2 my-1 ${isMine && "flex-row-reverse"} group`}>
-                <div className={` flex flex-col max-w-1/2 p-1 ${isMine ? "bg-fuchsia-800/80 rounded-tl-md" : "bg-neutral-700 rounded-tr-md"} animate-fade-in rounded-b-md text-white`}>
+                <div className={` flex flex-col md:max-w-1/2 p-1 ${isMine ? "bg-fuchsia-800/80 rounded-tl-md" : "bg-neutral-700 rounded-tr-md"} animate-fade-in rounded-b-md text-white`}>
                     {message?.replied?.text && <div className="rounded-md my-1 p-2 bg-fuchsia-500/20 shadow-md">
                         {message?.replied?.user == user?._id && <p className="text-fuchsia-200/90 font-semibold text-xs">Vous</p>}
                         <p className="text-sm text-white w-3/5"> {message?.replied?.text} </p>
