@@ -22,7 +22,6 @@ export default function Register() {
             const user = await register({ username: state.username, password: state.password });
             if (user?.error || user?.message) throw new Error(user.error || user.message);
             login(user);
-            window.location.reload()
         } catch (err) {
             setState(prev => ({ ...prev,  error: err.message }));
         }
