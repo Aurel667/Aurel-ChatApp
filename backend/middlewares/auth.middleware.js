@@ -15,6 +15,7 @@ exports.auth = async (req, res, next) => {
         req.user = user;
         next();
     } catch (error) {
-        return res.status(400).json({error: "Bad request"})
+        console.log(error.message)
+        return res.status(400).json({error: error.message})
     }
 }
