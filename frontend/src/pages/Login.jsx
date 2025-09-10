@@ -22,6 +22,7 @@ export default function Login( ) {
             const user = await Authenticate({ username: state.username, password: state.password });
             if (user?.error) throw new Error(user.error || 'Erreur');
             login(user);
+            window.location.reload()
         } catch (err) {
             setState(s => ({ ...s, error: err.message }));
         }
