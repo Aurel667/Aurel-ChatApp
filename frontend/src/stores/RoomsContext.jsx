@@ -5,7 +5,7 @@ import socket from "../config/socket"
 
 const initialState = {
     currentRoom: null,
-    rooms: [],
+    rooms: null,
     setCurrentRoom: (roomId) => {},
     setRoomAtfirst: (roomId) => {},
     createContact: async (username) => {},

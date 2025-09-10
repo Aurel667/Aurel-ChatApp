@@ -4,9 +4,11 @@ import {CheckCheck, Search} from 'lucide-react'
 import { useState } from "react"
 import { useEffect } from "react"
 import CreateChatContact from "./CreateChatContact"
-export function RoomsList({closeList}){
+import RoomsListSkeleton from "./RoomsListSkeleton"
+
+export default function RoomsList({closeList}){
     const {user} = useAuth()
-    const {rooms, setCurrentRoom} = useRooms()
+    const {setCurrentRoom, rooms} = useRooms()
     const [state, setState] = useState({
         search: "",
         rooms: []
@@ -30,7 +32,7 @@ export function RoomsList({closeList}){
     }
     return (
         <>
-        <div className="flex z-30 flex-col py-2 px-4 h-full w-full border-r rounded-tl-lg">
+        {Array.isArray(rooms) ? <div className="flex z-30 flex-col py-2 px-4 h-full w-full border-r rounded-tl-lg animate-fade-in">
             <div className="flex items-center justify-between">
                 <h1 className="font-bold text-xl text-white ">Discussions de {user?.username} </h1>
                 <CreateChatContact />
@@ -42,7 +44,7 @@ export function RoomsList({closeList}){
                 </div>
             </div>
             <div className="overflow-y-auto w-full h-8/10">
-                {state.rooms.length > 0 ? state.rooms.map(room => (
+                {state.rooms?.length > 0 ? state.rooms.map(room => (
                     <div onClick={() => handleRoomChange(room?._id)} key={room?._id} className="w-full px-4 pt-1 pb-2 my-1 animate-fade-in transition duration-300 hover:bg-neutral-700/90 rounded-lg cursor-pointer">
                         <div className="flex gap-2 items-center">
                             <div className="border border-gray-600 rounded-full min-w-8 min-h-8 bg-linear-to-br from-blue-500 to-fuchsia-500"></div>
@@ -66,12 +68,9 @@ export function RoomsList({closeList}){
                 }
             </div>
 
-        </div>
-        
-
-
-
-        {/* <button className="px-3 py-2 border rounded m-2" onClick={logout}>Déconnexion</button> */}
+        </div> : 
+            <RoomsListSkeleton />
+        }
         </>
     )
 }
